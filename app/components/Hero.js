@@ -196,6 +196,7 @@ export default function Hero() {
                       {languages.map((lang) => (
                         <button
                           key={lang.code}
+                          suppressHydrationWarning
                           onClick={(e) => { e.stopPropagation(); switchLanguage(lang.code); }}
                           className={`w-9 h-9 rounded-full text-xs font-bold transition-all duration-200 hover:scale-110 ${
                             currentLang === lang.code
@@ -213,6 +214,7 @@ export default function Hero() {
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
                       {/* Play/Pause button */}
                       <button
+                        suppressHydrationWarning
                         onClick={togglePlay}
                         className="w-9 h-9 bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all duration-200 hover:scale-110"
                         aria-label={isPlaying ? 'Pause' : 'Play'}
@@ -230,6 +232,7 @@ export default function Hero() {
 
                       {/* Mute/Unmute button */}
                       <button
+                        suppressHydrationWarning
                         onClick={toggleSound}
                         className={`w-9 h-9 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all duration-200 hover:scale-110 ${
                           isMuted ? 'bg-red-500/70 hover:bg-red-500/90 animate-pulse' : 'bg-black/60 hover:bg-black/80'
@@ -251,6 +254,7 @@ export default function Hero() {
                     {/* Tap to unmute hint - shows initially */}
                     {showHint && isMuted && (
                       <button
+                        suppressHydrationWarning
                         onClick={toggleSound}
                         className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white text-xs px-4 py-2 rounded-full z-10 animate-bounce cursor-pointer hover:bg-black/90 transition-colors"
                       >

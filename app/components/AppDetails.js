@@ -1,17 +1,6 @@
 'use client';
 import ScrollReveal from './ScrollReveal';
 
-const appDetails = [
-  { label: 'App Name', value: 'HH Patients Care', icon: '📱' },
-  { label: 'Category', value: 'Health & Fitness', icon: '💊' },
-  { label: 'Version', value: '1.0.0', icon: '🔄' },
-  { label: 'Size', value: '~25 MB', icon: '💾' },
-  { label: 'Platform', value: 'Android', icon: '🤖' },
-  { label: 'Requires', value: 'Android 7.0+', icon: '⚙️' },
-  { label: 'Developer', value: 'HH Patients Care', icon: '👨‍💻' },
-  { label: 'In-App Purchases', value: 'Membership Plans', icon: '💳' },
-];
-
 const screenshots = [
   {
     title: 'Dashboard',
@@ -133,56 +122,6 @@ export default function AppDetails() {
           ))}
         </div>
 
-        {/* App Info Grid */}
-        <ScrollReveal animation="fade-up" delay={200}>
-          <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8 md:p-10 relative overflow-hidden">
-            {/* Decorative corner gradient */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full" />
-
-            <h3 className="text-xl font-bold text-dark mb-8 flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-brand-green rounded-xl flex items-center justify-center">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              App Information
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-              {appDetails.map((detail, index) => (
-                <div key={index} className="group/item bg-gray-light rounded-2xl p-4 hover:bg-gradient-to-br hover:from-primary/5 hover:to-brand-green/5 transition-all duration-300 hover-lift cursor-default">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-lg">{detail.icon}</span>
-                    <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold">{detail.label}</p>
-                  </div>
-                  <p className="text-dark font-bold text-sm group-hover/item:text-primary transition-colors">{detail.value}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Permissions */}
-            <div className="mt-8 pt-6 border-t border-gray-100">
-              <h4 className="text-sm font-bold text-dark mb-4 uppercase tracking-wider flex items-center gap-2">
-                <svg className="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                App Permissions
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { name: 'Internet Access', icon: '🌐' },
-                  { name: 'Payment Processing', icon: '💰' },
-                  { name: 'Push Notifications', icon: '🔔' },
-                  { name: 'Phone (OTP Verification)', icon: '📞' },
-                ].map((perm, i) => (
-                  <span key={i} className="inline-flex items-center gap-1.5 bg-gray-100 text-gray-600 text-xs font-medium px-3.5 py-2 rounded-full hover:bg-primary/10 hover:text-primary transition-all duration-200 cursor-default hover:scale-105">
-                    <span>{perm.icon}</span>
-                    {perm.name}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );

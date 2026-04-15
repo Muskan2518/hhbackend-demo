@@ -6,6 +6,8 @@ import HowItWorks from './components/HowItWorks';
 import Pricing from './components/Pricing';
 import AppDetails from './components/AppDetails';
 import Download from './components/Download';
+import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
 import ScrollProgress from './components/ScrollProgress';
 import AnimatedBackground from './components/AnimatedBackground';
@@ -24,6 +26,8 @@ export default function Home() {
       <Pricing />
       <AppDetails />
       <Download />
+      <AboutUs />
+      <ContactUs />
       <Footer />
       <BackToTop />
     </main>

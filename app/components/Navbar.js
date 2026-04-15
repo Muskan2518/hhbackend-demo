@@ -35,8 +35,10 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="animated-underline text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
             <a href="#how-it-works" className="animated-underline text-gray-600 hover:text-primary transition-colors font-medium">How It Works</a>
-            <a href="#pricing" className="animated-underline text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
+            <a href="#pricing" className="animated-underline text-gray-600 hover:text-primary transition-colors font-medium">Programs</a>
             <a href="#download" className="animated-underline text-gray-600 hover:text-primary transition-colors font-medium">Download</a>
+            <a href="#about-us" className="animated-underline text-gray-600 hover:text-primary transition-colors font-medium">About Us</a>
+            <a href="#contact-us" className="animated-underline text-gray-600 hover:text-primary transition-colors font-medium">Contact Us</a>
             <a
               href="#download"
               className="bg-gradient-to-r from-primary to-brand-green text-white px-5 py-2.5 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 animate-pulse-glow"
@@ -66,8 +68,10 @@ export default function Navbar() {
               {[
                 { href: '#features', label: 'Features' },
                 { href: '#how-it-works', label: 'How It Works' },
-                { href: '#pricing', label: 'Pricing' },
+                { href: '#pricing', label: 'Programs' },
                 { href: '#download', label: 'Download' },
+                { href: '#about-us', label: 'About Us' },
+                { href: '#contact-us', label: 'Contact Us' },
               ].map((link, i) => (
                 <a
                   key={link.href}

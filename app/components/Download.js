@@ -1,8 +1,16 @@
 'use client';
+import { useState } from 'react';
 import ScrollReveal from './ScrollReveal';
 import ParticleField from './ParticleField';
 
 export default function Download() {
+  const [showToast, setShowToast] = useState(false);
+
+  const handleComingSoon = () => {
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
+
   return (
     <section id="download" className="py-20 bg-gradient-to-br from-primary via-primary-light to-brand-green relative overflow-hidden animate-gradient">
       {/* Background decoration */}
@@ -32,11 +40,9 @@ export default function Download() {
 
             {/* Play Store Button */}
             <ScrollReveal animation="fade-up" delay={300}>
-              <a
-                href="https://play.google.com/store"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-4 bg-dark text-white px-6 py-4 rounded-2xl hover:bg-gray-800 transition-all duration-300 shadow-2xl group hover:scale-105"
+              <button
+                onClick={handleComingSoon}
+                className="inline-flex items-center gap-4 bg-dark text-white px-6 py-4 rounded-2xl hover:bg-gray-800 transition-all duration-300 shadow-2xl group hover:scale-105 cursor-pointer"
               >
                 <svg className="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M3.609 1.814L13.792 12 3.609 22.186a.996.996 0 01-.609-.916V2.73a.996.996 0 01.609-.916zM14.852 13.06l2.341 2.342-8.27 4.742a1 1 0 01-.462.148l6.391-7.232zm3.558-2.2l2.059 1.18a1 1 0 010 1.72l-2.059 1.18-2.59-2.08 2.59-2zm-4.617-1.92l-6.391-7.232a1 1 0 01.462.148l8.27 4.742-2.341 2.342z" />
@@ -45,7 +51,7 @@ export default function Download() {
                   <p className="text-xs text-gray-400 uppercase tracking-wider">Get it on</p>
                   <p className="text-xl font-semibold group-hover:text-brand-green transition-colors">Google Play</p>
                 </div>
-              </a>
+              </button>
             </ScrollReveal>
 
             {/* Download stats */}
@@ -111,6 +117,17 @@ export default function Download() {
           </ScrollReveal>
         </div>
       </div>
+      {/* Coming Soon Popup */}
+      {showToast && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm" onClick={() => setShowToast(false)}>
+          <div className="bg-white rounded-3xl p-10 shadow-2xl text-center max-w-md mx-4 animate-bounce-in" onClick={(e) => e.stopPropagation()}>
+            <span className="text-6xl block mb-4">🚀</span>
+            <h3 className="text-2xl font-bold text-dark mb-2">Coming Soon!</h3>
+            <p className="text-gray-500 text-lg">The app will be available on Play Store shortly.</p>
+            <button onClick={() => setShowToast(false)} className="mt-6 bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary-light transition-colors cursor-pointer">Got it</button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

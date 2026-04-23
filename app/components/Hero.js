@@ -10,6 +10,12 @@ export default function Hero() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [showHint, setShowHint] = useState(true);
   const [currentLang, setCurrentLang] = useState('en');
+  const [showComingSoon, setShowComingSoon] = useState(false);
+
+  const handleComingSoon = () => {
+    setShowComingSoon(true);
+    setTimeout(() => setShowComingSoon(false), 3000);
+  };
 
   const languages = [
     { code: 'en', label: 'EN', name: 'English' },
@@ -118,15 +124,15 @@ export default function Hero() {
 
             <ScrollReveal animation="fade-up" delay={550}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <a
-                  href="#download"
-                  className="ripple-container inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-brand-green text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg hover:shadow-primary/25 hover:scale-105 transition-all duration-300 animate-pulse-glow"
+                <button
+                  onClick={handleComingSoon}
+                  className="ripple-container inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-brand-green text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg hover:shadow-primary/25 hover:scale-105 transition-all duration-300 animate-pulse-glow cursor-pointer"
                 >
                   <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M3.609 1.814L13.792 12 3.609 22.186a.996.996 0 01-.609-.916V2.73a.996.996 0 01.609-.916zM14.852 13.06l2.341 2.342-8.27 4.742a1 1 0 01-.462.148l6.391-7.232zm3.558-2.2l2.059 1.18a1 1 0 010 1.72l-2.059 1.18-2.59-2.08 2.59-2zm-4.617-1.92l-6.391-7.232a1 1 0 01.462.148l8.27 4.742-2.341 2.342z" />
                   </svg>
                   Download on Play Store
-                </a>
+                </button>
                 <a
                   href="#features"
                   className="inline-flex items-center justify-center gap-2 bg-white text-dark px-8 py-4 rounded-full text-lg font-semibold border-2 border-gray-200 hover:border-primary hover:text-primary hover:scale-105 transition-all duration-300 animate-glow-border"
@@ -272,6 +278,17 @@ export default function Hero() {
           </ScrollReveal>
         </div>
       </div>
+      {/* Coming Soon Popup */}
+      {showComingSoon && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm" onClick={() => setShowComingSoon(false)}>
+          <div className="bg-white rounded-3xl p-10 shadow-2xl text-center max-w-md mx-4 animate-bounce-in" onClick={(e) => e.stopPropagation()}>
+            <span className="text-6xl block mb-4">🚀</span>
+            <h3 className="text-2xl font-bold text-dark mb-2">Coming Soon!</h3>
+            <p className="text-gray-500 text-lg">The app will be available on Play Store shortly.</p>
+            <button onClick={() => setShowComingSoon(false)} className="mt-6 bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary-light transition-colors cursor-pointer">Got it</button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -15,7 +15,7 @@ export async function POST(request) {
     const dbUser = await User.findByPk(user.id);
     if (!dbUser) return NextResponse.json({ message: 'User not found' }, { status: 404 });
 
-    const amount = plan === '1year' ? 500 : 1000;
+    const amount = plan === '1year' ? 499 : 999;
     const amountInPaise = amount * 100;
     const order = await getRazorpay().orders.create({
       amount: amountInPaise, currency: 'INR',

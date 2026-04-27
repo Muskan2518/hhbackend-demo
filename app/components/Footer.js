@@ -42,6 +42,8 @@ export default function Footer() {
               <li><a href="#pricing" className="text-gray-400 hover:text-primary hover:translate-x-1 inline-block transition-all duration-300">Programs</a></li>
               <li><a href="#download" className="text-gray-400 hover:text-primary hover:translate-x-1 inline-block transition-all duration-300">Download</a></li>
               <li><a href="/privacy-policy" className="text-gray-400 hover:text-primary hover:translate-x-1 inline-block transition-all duration-300">Privacy Policy</a></li>
+              <li><a href="/data-deletion-policy" className="text-gray-400 hover:text-primary hover:translate-x-1 inline-block transition-all duration-300">Data Deletion Policy</a></li>
+              <li><a href="/delete-account" className="text-gray-400 hover:text-red-400 hover:translate-x-1 inline-block transition-all duration-300">Delete Account</a></li>
             </ul>
           </ScrollReveal>
 
